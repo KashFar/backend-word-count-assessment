@@ -40,9 +40,29 @@ print_words() and print_top().
 """
 
 import sys
+__author__ = "KashFar"
 
-# +++your code here+++
-# Define print_words(filename) and print_top(filename) functions.
+def extract_words(filename):
+    """helper function that opens the file and counts all the words"""
+    # should return a dictionary with every word in the file with the word as the key
+    # and the counts as the values
+
+    pass
+
+def print_words(filename):
+    #first thing they do is call extract words
+    """prints all the words in the file"""
+    word_dict = extract_words(filename)
+    sorted(word_dict.keys())
+    pass
+
+def print_top(filename):
+    """prints 20 most frequent words in the file"""
+    word_dict = extract_words(filename)
+
+    pass
+    
+ # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
