@@ -47,21 +47,38 @@ def extract_words(filename):
     # should return a dictionary with every word in the file with the word as the key
     # and the counts as the values
 
-    pass
+    word_dictionary = {}
+    # how to write this with the other open with syntax.
+    input_file = open(filename, 'r')
+    for line in input_file:
+        words = line.split()
+        for word in words:
+            word = word.lower()
+            # if word is not in the dictionary yet.
+            if word not in word_dictionary:
+                word_dictionary[word] = 1
+            else:
+                word_dictionary[word] += 1 
+    input_file.close() 
+    return word_dictionary    
 
 def print_words(filename):
     #first thing they do is call extract words
-    """prints all the words in the file"""
-    word_dict = extract_words(filename)
-    sorted(word_dict.keys())
-    pass
+    """prints one word and respective count on one line for all words"""
+    word_count = extract_words(filename)
+    words = sorted(word_count.keys())
+    for word in words:
+        print (word, word_count[word])
 
 def print_top(filename):
     """prints 20 most frequent words in the file"""
-    word_dict = extract_words(filename)
+    word_count = extract_words(filename)
+    word_count_pairs = sorted(word_count.items(), key=lambda x: x[1], reverse=True) 
 
-    pass
-    
+    for pair in word_count_pairs[:20]:
+        print (pair[0], pair[1])
+
+
  # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
